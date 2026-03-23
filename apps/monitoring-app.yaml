@@ -15,6 +15,9 @@ spec:
     - repoURL: https://github.com/TomGn1/Stack-GitOps---ArgoCD-Monitoring
       targetRevision: HEAD
       ref: values
+    - repoURL: https://github.com/TomGn1/Stack-GitOps---ArgoCD-Monitoring
+      targetRevision: HEAD
+      path: platform/monitoring
   destination:
     server: https://kubernetes.default.svc
     namespace: monitoring
