@@ -13,7 +13,7 @@ spec:
       valueFiles:
         - $values/platform/monitoring/values.yaml
   source:
-    repoURL: https://github.com/TomGn1/Stack-GitOps---ArgoCD-Monitoring.git
+    repoURL: https://github.com/TomGn1/Stack-GitOps---ArgoCD-Monitoring
     targetRevision: HEAD
     path: platform/monitoring
     helm:
