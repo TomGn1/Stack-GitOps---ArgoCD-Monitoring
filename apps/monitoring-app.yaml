@@ -12,7 +12,7 @@ spec:
       helm:
         valueFiles:
           - $values/platform/monitoring/values.yaml
-    - repoURL: https://github.com/Stack-GitOps---ArgoCD-Monitoring
+    - repoURL: https://github.com/Stack-GitOps---ArgoCD-Monitoring.git
       targetRevision: HEAD
       ref: values
   destination:
