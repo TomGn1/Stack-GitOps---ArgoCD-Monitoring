@@ -1,0 +1,20 @@
+grafana:
+  enabled: true
+  ingress:
+    enabled: true
+    ingressClassName: traefik
+    hosts:
+      - grafana.morguen.fr
+    tls:
+      - secretName: grafana-tls
+        hosts:
+          - grafana.morguen.fr
+    annotations:
+      cert-manager.io/cluster-issuer: letsencrypt-prod
+
+prometheus:
+  prometheusSpec:
+    retention: 15d
+
+alertmanager:
+  enabled: true

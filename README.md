@@ -4,10 +4,13 @@ Mise en place d'une stack de monitoring pour superviser mon homelab hébergé ch
 
 **Orchestration** :
 - Kubernetes : k3s
+
 **GitOps** :
 - Argo CD
+
 **Gestion des secrets** :
 - Sealed Secrets
+
 **Observabilité** :
 - Prometheus
 - Alertmanager
