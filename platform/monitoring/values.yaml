@@ -29,9 +29,6 @@ alertmanager:
       smtp_require_tls: true
       smtp_auth_username: 'guenin.tom@gmail.com'
       smtp_auth_password_file: /etc/alertmanager/secrets/alertmanager-smtp-secret/smtp_auth_password
-  alertmanagerSpec:
-    secrets:
-      - alertmanager-smtp-secret
 
     route:
       group_by: ['alertname', 'namespace']
@@ -45,3 +42,7 @@ alertmanager:
         email_configs:
           - to: 'guenin.tom@gmail.com'
             send_resolved: true
+
+  alertmanagerSpec:
+    secrets:
+      - alertmanager-smtp-secret
