@@ -27,6 +27,11 @@ alertmanager:
       smtp_smarthost: 'smtp.gmail.com:587'
       smtp_from: 'guenin.tom@gmail.com'
       smtp_require_tls: true
+      smtp_auth_username: 'guenin.tom@gmail.com'
+      smtp_auth_password_file: /etc/alertmanager/secrets/alertmanager-smtp-secret/smtp_auth_password
+  alertmanagerSpec:
+    secrets:
+      - alertmanager-smtp-secret
 
     route:
       group_by: ['alertname', 'namespace']
