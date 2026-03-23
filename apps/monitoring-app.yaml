@@ -6,7 +6,14 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/TomGn1/nom-du-repo.git
+    repoURL: https://prometheus-community.github.io/helm-charts
+    chart: kube-prometheus-stack
+    targetRevision: "56.6.2"
+    helm:
+      valueFiles:
+        - $values/platform/monitoring/values.yaml
+  source:
+    repoURL: https://github.com/TomGn1/Stack-GitOps---ArgoCD-Monitoring.git
     targetRevision: HEAD
     path: platform/monitoring
     helm:
