@@ -1,22 +1,22 @@
 global:
-  domain: argocd.morguen.fr  # ton domaine
+  domain: argocd.morguen.fr
 
 configs:
   params:
-    # Désactive HTTPS interne car on laisse l'Ingress gérer le TLS
+    # désactivation du HTTPS interne car Ingress gère le TLS
     server.insecure: true
 
 server:
   ingress:
     enabled: true
-    ingressClassName: traefik  # ingress controller par défaut de K3s
+    ingressClassName: traefik  # ingress controller K3s par défaut
     hostname: argocd.morguen.fr
     tls: true
     annotations:
-      # Génère automatiquement le certificat Let's Encrypt
+      # génération automatique du certificat Let's Encrypt
       cert-manager.io/cluster-issuer: letsencrypt-prod
 
-  # Ressources limitées pour un single-node
+  # limitation des ressources single-node
   resources:
     requests:
       cpu: 100m
