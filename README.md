@@ -70,10 +70,10 @@ flowchart LR
 
 ## V. Pour aller plus loin :
 
-- [Présentation de l'architecture](./architecture.md)
-- [Installation](bootstrap.md)
-- [Gestion des Secrets](secrets.md)
-- [Troubleshooting](troubleshooting.md)
+- [Présentation de l'architecture](./docs/architecture.md)
+- [Installation](./docs/bootstrap.md)
+- [Gestion des Secrets](./docs/secrets.md)
+- [Troubleshooting](./docs/troubleshooting.md)
 
 ## VI. Compétences acquise :
 
