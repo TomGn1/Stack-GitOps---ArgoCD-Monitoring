@@ -55,3 +55,12 @@ alertmanager:
   alertmanagerSpec:
     secrets:
       - alertmanager-smtp-secret
+
+kubeScheduler:
+  enabled: false
+
+kubeControllerManager:
+  enabled: false
+
+kubeProxy:
+  enabled: false
