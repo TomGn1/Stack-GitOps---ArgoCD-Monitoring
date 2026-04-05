@@ -26,9 +26,9 @@ alertmanager:
     global:
       resolve_timeout: 5m
       smtp_smarthost: 'smtp.gmail.com:587'
-      smtp_from: 'guenin.tom@gmail.com'
+      smtp_from: 'homelab.alerts.morguen@gmail.com'
       smtp_require_tls: true
-      smtp_auth_username: 'guenin.tom@gmail.com'
+      smtp_auth_username: 'homelab.alerts.morguen@gmail.com'
       smtp_auth_password_file: /etc/alertmanager/secrets/alertmanager-smtp-secret/smtp_auth_password
     route:
       receiver: 'email'
@@ -44,7 +44,7 @@ alertmanager:
       - name: 'null'
       - name: 'email'
         email_configs:
-          - to: 'guenin.tom@gmail.com'
+          - to: 'homelab.alerts.morguen@gmail.com'
             send_resolved: true
     inhibit_rules:
       - target_matchers:
