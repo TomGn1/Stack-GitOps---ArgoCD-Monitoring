@@ -159,6 +159,16 @@ kubectl rollout restart statefulset \
 >[!WARNING]
 >**StatefulSets vs Deployments** : un `StatefulSet` (_Prometheus_, _Alertmanager_) ne redémarre pas automatiquement quand un secret change, contrairement à un `Deployment`. Il faut forcer le rollout manuellement.
 
+---
+**Erreur : Réception d'alertes perpétuelles = `KubeControllerManagerDown`, `KubeSchedulerDown` et `kubeProxyDown`**
+
+Faux positifs inhérents à K3s, ces composants sont intégrés dans le binaire et ne sont pas exposés comme endpoints _Prometheus_.
+
+_Exemple d'une alerte reçue sur gmail :_
+
+![exampleKubeProxyAlert](./img/exampleKubeProxyAlert.png)
+
+**Solution** : Voir [bootstrap.md section 5.3](./bootstrap.md#53-exclusion-des-composants-intégrés-à-k3s).
 ### Commandes utiles :
 
 Verifier qu'_Alertmanager_ est `Running` :

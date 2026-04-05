@@ -528,7 +528,27 @@ kubectl logs -n monitoring \
         equal: ['namespace', 'alertname']
 ```
 
-#### 5.3 Ajout d'Alertemanager au values.yaml 
+#### 5.3 Exclusion des composants intégrés à K3s
+
+Dans une installation K3s standard, le `kubeControllerManager`, le `kubeScheduler` 
+et le `kubeProxy` sont intégrés directement dans le binaire K3s. Ils ne sont pas 
+exposés comme endpoints séparés. _Prometheus_ tente de les scraper et ne les trouvant 
+pas, génère des alertes perpétuelles de type `KubeControllerManagerDown`.
+
+Il faut donc désactiver leurs `ServiceMonitors` depuis le `values.yaml` :
+
+```yaml
+kubeScheduler:
+  enabled: false
+
+kubeControllerManager:
+  enabled: false
+
+kubeProxy:
+  enabled: false
+```
+
+#### 5.4 Ajout d'Alertemanager au values.yaml 
 
 ```yaml
 alertmanager:
@@ -566,7 +586,14 @@ alertmanager:
   alertmanagerSpec:
     secrets:
       - alertmanager-smtp-secret
+kubeScheduler:
+  enabled: false
 
+kubeControllerManager:
+  enabled: false
+
+kubeProxy:
+  enabled: false
 ```
 
 - Commit et Push :
