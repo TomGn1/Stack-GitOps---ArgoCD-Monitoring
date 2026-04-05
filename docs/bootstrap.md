@@ -39,8 +39,8 @@ helm version
 >
 >```yaml
 >NodeHosts: |
->    10.0.0.15 grafana.<nomDeDomaine>.fr
->    10.0.0.15 argocd.<nomDeDomaine>.fr
+>    <ipK3s> grafana.<nomDeDomaine>.fr
+>    <ipK3s> argocd.<nomDeDomaine>.fr
 >```
 >
 >- Pour que cette configuration ne soit pas écrasée au redémarrage de K3s, il faut la rendre persistante :
