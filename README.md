@@ -15,8 +15,8 @@ Ce projet suppose une familiarité avec :
 ## I. Présentation et contexte
 
 Ce projet répond à plusieurs besoins :
-- **Observabilité** : Pas de monitoring en place dans mon homelab. Une supervision depuis un interface graphique avec des alertes est nécéssaire.
-- **Reproductibilité et traçabilité** : L'intégralité de la stack doit être décrite dans Git comme source de vérité unique. Un cluster vierge doit pouvoir être restauré à l'état exact depuis de repo, sans intervention manuelle.
+- **Observabilité** : Pas de monitoring en place dans mon homelab. Une supervision depuis un interface graphique avec des alertes est nécessaire.
+- **Reproductibilité et traçabilité** : L'intégralité de la stack doit être décrite dans Git comme source de vérité unique. Un cluster vierge doit pouvoir être restauré à l'état exact depuis ce repo, sans intervention manuelle.
 - **Sécurité** : La stack doit être sécurisé, les secrets doivent être portable tout en étant hébergées sur GitHub.
 - **Montée en compétence** : Mettre en pratique Kubernetes, Helm ainsi que les principes GitOps dans un contexte réel : un stack opérationnelle qui supervise une infrastructure.
 ## II. Solutions retenues :
@@ -70,25 +70,33 @@ flowchart LR
 
 ## V. Pour aller plus loin :
 
-- [Présentation de l'architecture](./docs/architecture.md)
-- [Installation](./docs/bootstrap.md)
-- [Gestion des Secrets](./docs/secrets.md)
-- [Troubleshooting](./docs/troubleshooting.md)
+- [Présentation de l'architecture](./architecture.md)
+- [Installation](bootstrap.md)
+- [Gestion des Secrets](secrets.md)
+- [Troubleshooting](troubleshooting.md)
 
-## VI. Compétences acquise :
+## VI. Compétences acquises :
 
-**Pratique Kubernetes** :
-- Déploiement d'un cluster
-- Application des concepts liés au services k8s
-- Découverte des _Helm_ Charts
+**Kubernetes** :
+- Déploiement et administration d'un cluster K3s en environnement de production simulé.
+- Résolution de problèmes infrastructure réels : hairpin NAT, CoreDNS override, `StatefulSet` rollout.
+- Gestion des CRDs volumineuses via `ServerSideApply`.
 
-**Approfondissement sur les principes du CI/CD** :
-- Découverte d'_Argo CD_ pour déployer des applicatifs sur cluster
-- Découverte de la gestion des secrets avec _Argo CD_
+**GitOps et CI/CD** :
+- Mise en place d'une boucle de réconciliation complète avec _Argo CD_ (self-heal, automated sync, prune).
+- Gestion des secrets GitOps avec chiffrement asymétrique via _Sealed Secrets_; secrets versionnés dans _Git_ sans compromission.
+- Architecture multi-sources _Argo CD_ (_Helm_ chart + values repo + manifests).
 
-**Approfondissement sur la mise en place d'outils de supervision** :
-- Mise en place d'une stack _Prometheus_ + _Alertmanager_ + _Grafana_
+**Observabilité** :
+- Déploiement de _kube-prometheus-stack_ comme umbrella chart.
+- Configuration d'_Alertmanager_ : routing, inhibition, intégration SMTP Gmail.
+- Sécurisation des credentials via montage de secrets (`smtp_auth_password_file`)
 
+**Réseau et Sécurité** :
+- Gestion des certificats TLS automatisés via _cert-manager_ et _Let's Encrypt_ (HTTP-01)
+- Résolution d'un double NAT (_Proxmox iptables_ + _pfSense_) pour l'exposition des services
+- _Ingress Traefik_ avec terminaison TLS.
 
+---
 
-
+> Projet réalisé par [Tom Guenin](https://linkedin.com/in/tom-guenin-160510296) 
