@@ -1,7 +1,7 @@
 
 # Homelab Monitoring Stack
 
-![ArgoCD](https://img.shields.io/badge/ArgoCD-v3.3.4-blue) ![K3s](https://img.shields.io/badge/K3s-v1.34.4-green) ![kube-prometheus-stack](https://img.shields.io/badge/kube--prometheus--stack-v56.6.2-blue?logo=prometheus) ![SealedSecrets](https://img.shields.io/badge/Sealed_Secrets-v0.36.1-purple) ![cert-manager](https://img.shields.io/badge/cert--manager-v1.20-blue?logo=letsencrypt) ![Helm](https://img.shields.io/badge/Helm-v3-blue?logo=helm)
+![ArgoCD](https://img.shields.io/badge/ArgoCD-v3.3.6-blue) ![K3s](https://img.shields.io/badge/K3s-v1.34.4-green) ![kube-prometheus-stack](https://img.shields.io/badge/kube--prometheus--stack-v56.6.2-blue?logo=prometheus) ![SealedSecrets](https://img.shields.io/badge/Sealed_Secrets-v0.36.1-purple) ![cert-manager](https://img.shields.io/badge/cert--manager-v1.20-blue?logo=letsencrypt) ![Helm](https://img.shields.io/badge/Helm-v3-blue?logo=helm)
 
 Stack d'observabilité GitOps déployée sur K3s, supervisée par _Argo CD_ et basée sur `kube-prometheus-stack`.
 
